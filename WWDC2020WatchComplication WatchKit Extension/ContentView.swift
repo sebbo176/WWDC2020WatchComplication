@@ -10,22 +10,22 @@ import ClockKit
 
 struct ContentView: View {
     
-    let conic = RadialGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple]), center: .center, startRadius: 0, endRadius: 55)
+    let circularGradient = RadialGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple]), center: .center, startRadius: 0, endRadius: 55)
     
-    let other = LinearGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple]), startPoint: .bottom, endPoint: .top)
+    let bottomTopGradient = LinearGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple]), startPoint: .bottom, endPoint: .top)
     
     var body: some View {
         VStack {
             Text("Burn")
             ZStack {
                 Circle()
-                    .fill(conic)
+                    .fill(bottomTopGradient)
                 Image(systemName: "flame")
-                    .foregroundColor(.black)
+                    .complicationForeground()
+                    .background(Color.clear)
                     .font(.body)
-                    .shadow(radius: 5)
+
             }
-            .scaledToFit()
         }
     }
 }
